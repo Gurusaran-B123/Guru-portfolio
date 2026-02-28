@@ -732,7 +732,7 @@
                     </div>
                     <div class="skill-card">
                         <h3>⚙️ Backend</h3>
-                        <p>Python, Django, Databases, APIs</p>
+                        <p>Python,Flask,Databases, APIs</p>
                     </div>
                     
                     <div class="skill-card">
@@ -821,9 +821,6 @@
     <!-- FOOTER -->
     <footer>
         <p>&copy; 2024 Gurusaran. All rights reserved.</p>
-        <div style="text-align:center; margin: 20px;">
-    <p>Total Visitors: <span id="counter">0</span></p>
-</div>
     </footer>
 
     <!-- JAVASCRIPT FOR SCROLL ANIMATIONS -->
@@ -879,9 +876,9 @@
             });
 
             navLinks.forEach(link => {
-                link.style.backgroundColor = 'var(--secondary-color)';
+                link.style.backgroundColor = '';
                 if (link.getAttribute('href').slice(1) === current) {
-                    link.style.backgroundColor = 'var(--primary-color)';
+                    link.style.backgroundColor = '';
                     link.style.color = 'white';
                 } else {
                     link.style.color = 'black';
@@ -890,13 +887,6 @@
         });
     </script>
 
-<script>
-    // Fetch visitor count from API
-    fetch('https://api.countapi.xyz/get/gurusaran-portfolio/visits')
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('counter').textContent = data.value;
-        });
-</script>
+
 </body>
 </html>
