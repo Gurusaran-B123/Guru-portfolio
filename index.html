@@ -617,11 +617,11 @@
         @media (max-width: 480px) {
             .contact {
                 gap: 10px;
-                flex-direction: column;
+                flex-direction:row;
             }
 
             .but {
-                width: 90px;
+                width:60px;
                 height: 40px;
                 font-size: 0.85rem;
             }
@@ -660,7 +660,7 @@
             }
 
             .contact-link {
-                width: 50px;
+               
                 height: 50px;
                 font-size: 1.2rem;
             }
@@ -861,30 +861,6 @@
             document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
         });
 
-        // Active nav highlight
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section, main');
-            const navLinks = document.querySelectorAll('.but');
-
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.style.backgroundColor = '';
-                if (link.getAttribute('href').slice(1) === current) {
-                    link.style.backgroundColor = '';
-                    link.style.color = 'white';
-                } else {
-                    link.style.color = 'black';
-                }
-            });
-        });
     </script>
 
 
