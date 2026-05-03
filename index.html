@@ -39,13 +39,18 @@
             box-shadow: 0 0 15px rgba(65, 65, 243, 0.3);
         }
 
-        nav {
+       nav {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content:space-between;
+            padding:0px 50px;
             width: 100%;
         }
-
+        
+        .gn-logo{
+            height: 80px;width: 80px;
+            border-radius: 60%;
+        }
         .contact {
             display: flex;
             gap: 30px;
@@ -72,19 +77,21 @@
 
         .but:hover {
             color: white;
+            
             transform: translateY(-2px);
             box-shadow: 0px 0px 20px 5px rgba(65, 65, 243, 0.815);
         }
 
         .but:focus {
-            color: rgb(18, 27, 150);
+            color: darkcyan;
             border: 2px solid white;
             outline: none;
         }
 
        
         .main {
-            background-color: #bcc7f0;
+            /* background-color: #bcc7f0; */
+            background-color: #8B9EB7;
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -431,7 +438,43 @@
             color: gray;
             line-height: 1.6;
             margin-bottom: 20px;
+            font-size: 1rem;
+           
         }
+
+        .links{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-content a{
+            text-decoration: none;
+            color:black;
+            font-weight: 600;
+            animation-name:link;
+            animation-duration:1.5s;
+            animation-iteration-count: infinite;
+
+        }
+        @keyframes link{
+            0%,100%{
+                color:blue;
+            }
+            25%{
+                 color: gray;
+            }
+            35%{
+                color: darkgreen;
+            }
+            45%{
+                  color: red;
+            }
+            55%{
+                   color: mediumvioletred;
+            }
+        }
+        
 
         .project-tags {
             display: flex;
@@ -486,7 +529,11 @@
             flex-wrap: wrap;
             animation: fadeIn 0.8s ease-out 0.4s both;
         }
-
+         .contact-links i{
+            font-size: 2.5rem;
+            color: black;
+           
+         }
         .contact-link {
             display: inline-flex;
             align-items: center;
@@ -494,19 +541,19 @@
             width: 90px;
             height: 60px;
             border-radius: 10px 5px 10px 5px ;
-            color: rgb(41, 41, 226);
+            
             text-decoration: none;
             font-size: 1.5rem;
             transition: all 0.3s ease;
             box-shadow: 0 0px 15px  2px rgba(23, 23, 24, 0.3);
-            border: 0.5px solid rgb(3, 3, 3);
+            border: 0.5px solid rgb(41, 41, 226);
         }
 
         .contact-link:hover {
             transform: translateY(-5px) rotate(10deg);
             box-shadow: 0 15px 30px aqua;
             background-color: aqua;
-            color: black;
+           
         }
 
         
@@ -517,15 +564,89 @@
             padding: 40px;
             text-align: center;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
             gap: 20px;
         }
 
-        footer p {
-            margin: 0;
-            font-size: 1rem;
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
         }
+ 
+        .footer-grid {
+            display: grid;
+            grid-template-columns:1fr 1fr ;
+            gap:300px;
+            margin-bottom: 40px;
+        }
+ 
+        .footer-section h3 {
+            font-size: 1em;
+            color: #fff;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+ 
+        .footer-links1,.footer-links2{
+            list-style: none;
+        }
+ 
+        .footer-links1 li,.footer-links2 li{
+            border: 1px solid white;
+            margin-bottom: 10px;
+            border-radius:5px;
+            text-align: center;
+            background-color:#8b9eb7ab;
+            transition: 0.5s;
+            height: 30px;
+        }
+
+
+        .footer-links1 li:hover a{
+            
+            color: white;
+        }
+
+        .footer-links2 li:hover a{
+          
+            color: white;
+        }
+ 
+        .footer-links1 a {
+            color:black;
+            text-decoration: none;
+            font-size: 0.95em;
+            transition: color 0.3s ease;
+            
+        }
+         .footer-links2 a {
+            color:black;
+            text-decoration: none;
+            font-size: 0.95em;
+            transition: color 0.3s ease;
+            
+        }
+ 
+        
+ 
+        
+        /* Copyright */
+        .footer-bottom {
+            display:flex;
+            justify-content: center;
+            color:black;
+            font-size: 0.9em;
+            background-color:#8B9EB7;
+            border-bottom: 5px solid black;
+            
+            
+        }
+        
+
 
         
         /* RESPONSIVE DESIGN*/
@@ -615,10 +736,28 @@
         }
 
         @media (max-width: 480px) {
+
+             .footer-grid {
+            display: grid;
+            grid-template-columns:1fr;
+            gap:10px;
+            margin-bottom: 40px;
+        }
             .contact {
-                gap: 10px;
+                gap:5px;
                 flex-direction:row;
             }
+
+            nav {
+        
+            padding:0px 10px;
+           
+        }
+        
+        .gn-logo{
+            height: 40px;width: 40px;
+            border-radius: 60%;
+        }
 
             .but {
                 width:60px;
@@ -678,15 +817,14 @@
             transform: translateY(0);
         }
     </style>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
-
-
-
-
 <body>
     
     <header>
         <nav>
+            <img class="gn-logo" src="gn.png" alt="logo">
             <div class="contact">
                 <a href="#home" class="but">Home</a>
                 <a href="#about" class="but">About</a>
@@ -728,16 +866,16 @@
                 <div class="skills-grid">
                     <div class="skill-card">
                         <h3>🎯 Frontend</h3>
-                        <p>HTML, CSS, JavaScript, React, Responsive Design</p>
+                        <p>HTML, CSS, JavaScript, Bootstrap, Responsive Design</p>
                     </div>
                     <div class="skill-card">
                         <h3>⚙️ Backend</h3>
-                        <p>Python,Flask,Databases, APIs</p>
+                        <p>Python, Flask, Databases, APIs</p>
                     </div>
                     
                     <div class="skill-card">
                         <h3>🚀 Tools</h3>
-                        <p>github,XAMPP, AI(Claude & chat gpt etc...), REST APIs, Testing</p>
+                        <p>github,XAMPP, AI(Claude & chat gpt etc...),Testing,supabase</p>
                     </div>
                 </div>
             </div>
@@ -751,13 +889,38 @@
     <section class="projects" id="projects">
         <h2 class="section-title">Projects</h2>
         <div class="projects-grid">
-        <div class="project-card">
+
+       
+
+            <div class="project-card">
+                <div class="project-image2"></div>
+                <div class="project-content">
+                <h3>Wood Works & Interior Design Website</h3>
+        <p>This project is a business portfolio website developed for an interior and woodworks service provider, showcasing their craftsmanship and services online.
+It provides users with information about interior design solutions, custom woodwork, and contact details for client inquiries.
+The design is modern, visually focused, and responsive, highlighting project images, services, and smooth navigation for better user experience.
+The website simplifying communication between clients and the service provider.</p>
+
+         <p class="links"><span>Live: </span><a href="https://sri-vekkaliamman-interiorandwoodworks.mr-gurusaran123.workers.dev/">click to view</a></p>
+        <div class="project-tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag"> Python-Flask</span>
+            <span class="tag">DB-postgresql</span>
+            </div>
+        </div>
+            </div>
+
+             <div class="project-card">
         <div class="project-image1"></div>
         <div class="project-content">
         <h3>Information Management System</h3>
         <p>A robust backend system for collecting, storing, and managing user information efficiently. 
         Built with Python for core logic and MySQL for secure data persistence. Features include user 
         data input, validation, retrieval, and information auto pdf generated</p>
+
+        <p class="links"><span>Live: </span><a href="https://github.com/Gurusaran-B123/">click to view</a></p>
         <div class="project-tags">
         <span class="tag">Python(IDLE)</span>
         <span class="tag">MySQL(XAMPP control panel)</span>
@@ -767,37 +930,23 @@
             </div>
 
             <div class="project-card">
-                <div class="project-image2"></div>
-                <div class="project-content">
-                <h3>Wood Works & Interior Design Website</h3>
-        <p>A full-stack web application showcasing wood works and interior design services. 
-        Features a dynamic frontend with responsive design, backend API for service management, 
-        and database integration for storing projects, client information, and service details. 
-        Users can browse portfolios, request quotes, and manage bookings seamlessly.</p>
-        <div class="project-tags">
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">Flask</span>
-            <span class="tag">Python</span>
-            <span class="tag">MySQL</span>
-            </div>
-        </div>
-            </div>
-
-            <div class="project-card">
                 <div class="project-image3"></div>
                  <div class="project-content">
-        <h3>Modern Card UI Portfolio</h3>
-        <p>A sleek, minimalist single-page portfolio website featuring elegant card-based layouts with smooth animations. 
-        Designed with only 4 interactive buttons per card and clean UI elements. Includes glassmorphism effects, 
-        gradient backgrounds, responsive grid design, and delightful hover animations. Perfect for showcasing creative 
-        work with a modern, professional aesthetic.</p>
+        <h3>ManuFlow</h3>
+        <p>MenuFlow is a modern web-based digital menu solution designed as an alternative to traditional paper menu cards.
+It allows customers to browse food items easily on mobile and desktop devices.
+The design is clean, modern, and fully responsive with smooth navigation and interactive UI.
+It provides a contactless and hygienic solution while reducing printing and maintenance costs.
+It is scalable and suitable for large restaurants and multi-branch restaurant chains.</p>
+
+         <p class="links"><span>Live: </span><a href=" https://gurusaran-b123.github.io/MenuFlow/">click to view</a></p>
         <div class="project-tags">
             <span class="tag">HTML</span>
             <span class="tag">CSS</span>
             <span class="tag">JavaScript</span>
             <span class="tag">UI Design & Animation</span>
+            <span class="tag">Bootstrap</span>
+
         </div>
                 </div>
             </div>
@@ -811,17 +960,45 @@
             <p>I'm always interested in hearing about new projects and opportunities. Feel free to reach out!</p>
             
             <div class="contact-links">
-                <a href="mailto:mr.gurusaran123@gmail.com" class="contact-link">Gmail</a>
-                <a href="https://www.linkedin.com/in/gurusaran-b-06b7ab304/" class="contact-link">Linkedin</a>
-                <a href="https://github.com/Gurusaran-B123" class="contact-link">GitHub</a>
+                <a href="mailto:mr.gurusaran123@gmail.com" class="contact-link"><i class="bi bi-envelope-at-fill"></i></a>
+                <a href="https://www.linkedin.com/in/gurusaran-b-06b7ab304/" class="contact-link"><i class="bi bi-linkedin"></i></a>
+                <a href="https://github.com/Gurusaran-B123" class="contact-link"><i class="bi bi-github"></i></a>
+                 <a href="https://www.instagram.com/guru.kingdom123/" class="contact-link"><i class="bi bi-instagram"></i></a>
             </div>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 Gurusaran. All rights reserved.</p>
+         <div class="footer-container">
+            <div class="footer-grid">
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links1">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#blog">Contact</a></li>
+                    </ul>
+                </div>
+ 
+                <!-- Contact -->
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul class="footer-links2">
+                        <li><a href="mailto:mr.gurusaran123@gmail.com">Gmail</a></li>
+                        <li><a href="https://www.linkedin.com/in/gurusaran-b-06b7ab304/">LinkedIn</a></li>
+                        <li><a href="https://www.instagram.com/guru.kingdom123/">Instagram</a></li>
+                        
+                    </ul>
+                </div>
+        </div>
+    
     </footer>
+    <div class="footer-bottom">
+                <p>&copy; 2026 Gurusaran. All rights reserved.</p>
+            </div>
 
     <!-- JAVASCRIPT FOR SCROLL ANIMATIONS -->
     <script>
