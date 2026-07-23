@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gurusaran-b123.github.io/Guru-portfolio/sitemap.xml
