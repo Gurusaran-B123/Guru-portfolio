@@ -866,6 +866,258 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+     /* =====================================================================
+   ADD-ON STYLES: Glassmorphism, Claymorphism, Skeuomorphism, Neumorphism
+   Paste at the very END of your existing <style> block (after the last
+   media query). Nothing in <head> (SEO / Search Console) is touched.
+   ===================================================================== */
+
+/* ---------- 1. GLASSMORPHISM : header, nav buttons, role chips, footer links ---------- */
+
+/* soft colour blobs so the glass has something to blur in the hero */
+.main::before,
+.main::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    z-index: 1;
+    pointer-events: none;
+}
+.main::before {
+    width: 380px; height: 380px;
+    background: rgba(65, 65, 243, 0.45);
+    top: 10%; right: 8%;
+}
+.main::after {
+    width: 320px; height: 320px;
+    background: rgba(222, 184, 135, 0.8);
+    bottom: 5%; right: 30%;
+}
+
+header {
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(16px) saturate(160%);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+}
+
+.but {
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 4px 16px rgba(31, 38, 135, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+.but:hover {
+    background: rgba(255, 255, 255, 0.4);
+    color: black;
+    box-shadow: 0 8px 24px rgba(65, 65, 243, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.role {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(14px) saturate(150%);
+    -webkit-backdrop-filter: blur(14px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.footer-links1 li,
+.footer-links2 li {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+}
+.footer-links1 a,
+.footer-links2 a {
+    color: white;
+}
+.footer-links1 li:hover,
+.footer-links2 li:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* ---------- 2. CLAYMORPHISM : CTA button, skill cards, tags ---------- */
+
+.cta-button {
+    background: linear-gradient(145deg, #ffe0b5, #f2b36b);
+    border-radius: 50px;
+    box-shadow:
+        10px 10px 20px rgba(120, 80, 30, 0.35),
+        -8px -8px 16px rgba(255, 255, 255, 0.7),
+        inset -6px -6px 12px rgba(160, 100, 30, 0.28),
+        inset 6px 6px 12px rgba(255, 255, 255, 0.65);
+}
+.cta-button:hover {
+    background: linear-gradient(145deg, #ffe8c8, #f6bd7c);
+    color: black;
+    transform: translateY(-4px);
+    box-shadow:
+        14px 14px 26px rgba(120, 80, 30, 0.38),
+        -10px -10px 20px rgba(255, 255, 255, 0.75),
+        inset -6px -6px 12px rgba(160, 100, 30, 0.28),
+        inset 6px 6px 12px rgba(255, 255, 255, 0.65);
+}
+.cta-button:active {
+    transform: translateY(0);
+    box-shadow:
+        4px 4px 8px rgba(120, 80, 30, 0.35),
+        inset -3px -3px 8px rgba(160, 100, 30, 0.3),
+        inset 3px 3px 8px rgba(255, 255, 255, 0.5);
+}
+
+.skill-card {
+    background: linear-gradient(145deg, #f0d2a8, #dcb583);
+    border-radius: 28px;
+    box-shadow:
+        9px 9px 18px rgba(120, 80, 30, 0.3),
+        -7px -7px 14px rgba(255, 255, 255, 0.65),
+        inset -5px -5px 10px rgba(160, 100, 30, 0.2),
+        inset 5px 5px 10px rgba(255, 255, 255, 0.55);
+}
+.skill-card:hover {
+    transform: translateY(-6px);
+    border-left: none;
+    box-shadow:
+        12px 14px 24px rgba(120, 80, 30, 0.34),
+        -8px -8px 16px rgba(255, 255, 255, 0.7),
+        inset -5px -5px 10px rgba(160, 100, 30, 0.2),
+        inset 5px 5px 10px rgba(255, 255, 255, 0.55);
+}
+
+.tag {
+    background: linear-gradient(145deg, #ffd1e0, #f7a8c4);
+    border-radius: 20px;
+    box-shadow:
+        4px 4px 8px rgba(160, 60, 100, 0.3),
+        -3px -3px 6px rgba(255, 255, 255, 0.8),
+        inset -2px -2px 5px rgba(160, 60, 100, 0.2),
+        inset 2px 2px 5px rgba(255, 255, 255, 0.7);
+}
+
+/* ---------- 3. SKEUOMORPHISM : project cards (metal plate + screws), photo frame ---------- */
+
+.project-card {
+    position: relative;
+    background: linear-gradient(180deg, #fdfdfd 0%, #e4e4e4 100%);
+    border: 1px solid #b9b9b9;
+    border-radius: 14px;
+    box-shadow:
+        0 14px 28px rgba(0, 0, 0, 0.35),
+        0 3px 6px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 #ffffff,
+        inset 0 -2px 4px rgba(0, 0, 0, 0.15);
+}
+.project-card:hover {
+    box-shadow:
+        0 24px 44px rgba(0, 0, 0, 0.4),
+        0 6px 10px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 #ffffff,
+        inset 0 -2px 4px rgba(0, 0, 0, 0.15);
+}
+/* screws in the top corners */
+.project-card::before,
+.project-card::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    z-index: 2;
+    background: radial-gradient(circle at 35% 30%, #ffffff 0%, #b5b5b5 45%, #666 100%);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6), inset 0 -1px 1px rgba(0, 0, 0, 0.4);
+}
+.project-card::before { left: 10px; }
+.project-card::after  { right: 10px; }
+
+.project-image1,
+.project-image2,
+.project-image3,
+.project-image4 {
+    border-bottom: 2px solid #8c8c8c;
+    box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.45);
+}
+
+.project-content {
+    background: linear-gradient(180deg, #f6f6f6, #e0e0e0);
+    border-top: 1px solid #fff;
+}
+.project-content h3 {
+    text-shadow: 0 1px 0 #ffffff;
+}
+
+/* profile photo as a wooden picture frame */
+.about-image-box {
+    border: 14px solid #a06a35;
+    border-radius: 10px;
+    background-origin: border-box;
+    box-shadow:
+        0 22px 40px rgba(0, 0, 0, 0.4),
+        0 0 0 2px #5a3714,
+        inset 0 0 0 2px rgba(255, 220, 170, 0.5),
+        inset 0 0 16px rgba(0, 0, 0, 0.7);
+}
+
+/* ---------- 4. NEUMORPHISM : about + contact sections ---------- */
+
+.about,
+.contact-section {
+    background-color: #e6e9ef;
+}
+
+.about-content {
+    background: #e6e9ef;
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 12px 12px 24px #c3c6cc, -12px -12px 24px #ffffff;
+}
+
+.contact-link {
+    background: #e6e9ef;
+    border: none;
+    border-radius: 18px;
+    box-shadow: 8px 8px 16px #c3c6cc, -8px -8px 16px #ffffff;
+}
+.contact-link:hover {
+    transform: none;
+    background-color: #e6e9ef;
+    box-shadow: inset 6px 6px 12px #c3c6cc, inset -6px -6px 12px #ffffff;
+}
+.contact-link:active {
+    box-shadow: inset 8px 8px 16px #b5b8be, inset -8px -8px 16px #ffffff;
+}
+
+/* ---------- Accessibility & responsive safety ---------- */
+
+.but:focus-visible,
+.cta-button:focus-visible,
+.contact-link:focus-visible {
+    outline: 3px solid #4141f3;
+    outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+    .about-content { padding: 24px; }
+    .main::before { width: 220px; height: 220px; }
+    .main::after  { width: 200px; height: 200px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .about-image-box,
+    .cta-button,
+    .skill-card,
+    .project-card,
+    .contact-link {
+        animation: none;
+        transition: none;
+    }
+ }
+         
     </style>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
@@ -900,10 +1152,10 @@
 <a href="GS_Resume.pdf" download="Gurusaran-Resume.pdf" style="text-decoration:none;margin-top:30px">
   <button style="
     padding: 10px 22px;
-    font-size: 14px;
+    font-size: 10px;
     font-weight: 700;
     color: #2d2d2d;
-    background: #e8ecf2;
+    
    
     border: none;
     border-radius:10px;
