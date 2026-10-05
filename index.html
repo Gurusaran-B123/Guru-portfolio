@@ -182,7 +182,7 @@
         }
 
         .name {
-            font-size: 4.5rem;
+            font-size:6rem;
             font-weight: 800;
             margin-bottom: 20px;
             animation: fadeIn 0.8s ease-out 0.4s both;
@@ -875,26 +875,7 @@
 
 /* ---------- 1. GLASSMORPHISM : header, nav buttons, role chips, footer links ---------- */
 
-/* soft colour blobs so the glass has something to blur in the hero */
-.main::before,
-.main::after {
-    content: "";
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(60px);
-    z-index: 1;
-    pointer-events: none;
-}
-.main::before {
-    width: 380px; height: 380px;
-    background: rgba(65, 65, 243, 0.45);
-    top: 10%; right: 8%;
-}
-.main::after {
-    width: 320px; height: 320px;
-    background: rgba(222, 184, 135, 0.8);
-    bottom: 5%; right: 30%;
-}
+
 
 header {
     background: rgba(255, 255, 255, 0.18);
@@ -1053,7 +1034,6 @@ header {
 
 /* profile photo as a wooden picture frame */
 .about-image-box {
-    border: 14px solid #a06a35;
     border-radius: 10px;
     background-origin: border-box;
     box-shadow:
