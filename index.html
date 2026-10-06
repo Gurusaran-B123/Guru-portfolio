@@ -867,7 +867,7 @@
             transform: translateY(0);
         }
 
-     /* =====================================================================
+/* =====================================================================
    ADD-ON STYLES: Liquid Glass, Claymorphism, Skeuomorphism, Neumorphism
    Paste at the very END of your existing <style> block (after the last
    media query). Nothing in <head> (SEO / Search Console) is touched.
@@ -992,52 +992,43 @@ header:hover {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0.15));
 }
 
-/* ---------- 2. CLAYMORPHISM : CTA button, skill cards, tags ---------- */
+/* ---------- 2. LIQUID GLASS BUTTON (CTA) + CLAY TAGS ---------- */
 
 .cta-button {
-    background: linear-gradient(145deg, #ffe0b5, #f2b36b);
-    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(180deg, #8b5cf6, #3b82f6);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 999px;
+    backdrop-filter: blur(10px) saturate(170%);
+    -webkit-backdrop-filter: blur(10px) saturate(170%);
     box-shadow:
-        10px 10px 20px rgba(120, 80, 30, 0.35),
-        -8px -8px 16px rgba(255, 255, 255, 0.7),
-        inset -6px -6px 12px rgba(160, 100, 30, 0.28),
-        inset 6px 6px 12px rgba(255, 255, 255, 0.65);
+        inset 0 -3px 6px rgba(255, 255, 255, 0.35),
+        inset 0 1.5px 1px rgba(255, 255, 255, 0.8),
+        0 12px 28px rgba(99, 102, 241, 0.5);
+}
+.cta-button::before {
+    content: "";
+    position: absolute;
+    left: 6%; right: 6%; top: 2px;
+    height: 46%;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0));
+    pointer-events: none;
 }
 .cta-button:hover {
-    background: linear-gradient(145deg, #ffe8c8, #f6bd7c);
-    color: black;
-    transform: translateY(-4px);
+    background: linear-gradient(180deg, #9d75f8, #4d90f7);
+    color: #fff;
+    transform: translateY(-3px);
     box-shadow:
-        14px 14px 26px rgba(120, 80, 30, 0.38),
-        -10px -10px 20px rgba(255, 255, 255, 0.75),
-        inset -6px -6px 12px rgba(160, 100, 30, 0.28),
-        inset 6px 6px 12px rgba(255, 255, 255, 0.65);
+        inset 0 -3px 6px rgba(255, 255, 255, 0.4),
+        inset 0 1.5px 1px rgba(255, 255, 255, 0.9),
+        0 16px 34px rgba(99, 102, 241, 0.6);
 }
 .cta-button:active {
     transform: translateY(0);
-    box-shadow:
-        4px 4px 8px rgba(120, 80, 30, 0.35),
-        inset -3px -3px 8px rgba(160, 100, 30, 0.3),
-        inset 3px 3px 8px rgba(255, 255, 255, 0.5);
-}
-
-.skill-card {
-    background: linear-gradient(145deg, #f0d2a8, #dcb583);
-    border-radius: 28px;
-    box-shadow:
-        9px 9px 18px rgba(120, 80, 30, 0.3),
-        -7px -7px 14px rgba(255, 255, 255, 0.65),
-        inset -5px -5px 10px rgba(160, 100, 30, 0.2),
-        inset 5px 5px 10px rgba(255, 255, 255, 0.55);
-}
-.skill-card:hover {
-    transform: translateY(-6px);
-    border-left: none;
-    box-shadow:
-        12px 14px 24px rgba(120, 80, 30, 0.34),
-        -8px -8px 16px rgba(255, 255, 255, 0.7),
-        inset -5px -5px 10px rgba(160, 100, 30, 0.2),
-        inset 5px 5px 10px rgba(255, 255, 255, 0.55);
 }
 
 .tag {
@@ -1101,32 +1092,72 @@ header:hover {
     text-shadow: 0 1px 0 #ffffff;
 }
 
-/* profile photo as a wooden picture frame */
-.about-image-box {
-    border: 14px solid #a06a35;
-    border-radius: 10px;
-    background-origin: border-box;
-    box-shadow:
-        0 22px 40px rgba(0, 0, 0, 0.4),
-        0 0 0 2px #5a3714,
-        inset 0 0 0 2px rgba(255, 220, 170, 0.5),
-        inset 0 0 16px rgba(0, 0, 0, 0.7);
+/* ---------- 4. LIQUID GLASS ABOUT SECTION ---------- */
+
+.about {
+    position: relative;
+    overflow: hidden;
+    background-color: #dfe6f5;
+    background-image:
+        radial-gradient(circle at 10% 20%, rgba(167, 139, 250, 0.6), transparent 40%),
+        radial-gradient(circle at 90% 15%, rgba(94, 234, 212, 0.55), transparent 38%),
+        radial-gradient(circle at 85% 90%, rgba(251, 146, 120, 0.5), transparent 40%),
+        radial-gradient(circle at 15% 90%, rgba(96, 165, 250, 0.5), transparent 38%);
+}
+.about-container {
+    position: relative;
+    z-index: 1;
 }
 
-/* ---------- 4. NEUMORPHISM : about + contact sections ---------- */
-
-.about,
-.contact-section {
-    background-color: #e6e9ef;
+.about-content,
+.skill-card,
+.about-image-box {
+    background-color: transparent;
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0.1));
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow:
+        inset 0 1.5px 1px rgba(255, 255, 255, 0.95),
+        inset 0 -1.5px 2px rgba(255, 255, 255, 0.35),
+        inset 3px 0 6px rgba(120, 160, 255, 0.22),
+        inset -3px 0 6px rgba(255, 150, 200, 0.2),
+        0 14px 36px rgba(30, 40, 90, 0.22),
+        0 2px 6px rgba(30, 40, 90, 0.12);
 }
 
 .about-content {
-    background: #e6e9ef;
-    border-radius: 30px;
+    border-radius: 32px;
     padding: 40px;
-    box-shadow: 12px 12px 24px #c3c6cc, -12px -12px 24px #ffffff;
 }
 
+.skill-card {
+    border-radius: 24px;
+}
+.skill-card:hover {
+    transform: translateY(-6px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow:
+        inset 0 1.5px 1px rgba(255, 255, 255, 1),
+        inset 0 -1.5px 2px rgba(255, 255, 255, 0.4),
+        0 20px 40px rgba(65, 65, 243, 0.3);
+}
+
+/* profile photo: glass frame around the picture */
+.about-image-box {
+    background-image: url("images/my.jfif");
+    background-position: center;
+    background-size: 120%;
+    background-origin: border-box;
+    border: 12px solid rgba(255, 255, 255, 0.5);
+    border-radius: 36px;
+}
+
+/* ---------- CONTACT SECTION: unchanged from before (neumorphism) ---------- */
+
+.contact-section {
+    background-color: #e6e9ef;
+}
 .contact-link {
     background: #e6e9ef;
     border: none;
@@ -1167,7 +1198,10 @@ header:hover {
         transition: none;
     }
  }
-     
+ 
+
+        
+
 
 
          
