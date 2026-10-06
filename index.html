@@ -1160,8 +1160,59 @@ header:hover {
  
 
         
+/* =====================================================================
+   MOBILE BOTTOM NAV BAR (liquid glass)
+   Paste at the very END of your <style> block, after portfolio-ui-styles.css.
+   Works only on screens 768px wide or smaller. Desktop stays the same.
+   ===================================================================== */
 
+@media (max-width: 768px) {
 
+    /* move the header from top to a floating bar at the bottom */
+    header {
+        top: auto;
+        bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+        left: 12px;
+        right: 12px;
+        width: auto;
+        padding: 8px 10px;
+        border-radius: 999px;
+        border-top: 1px solid rgba(255, 255, 255, 0.55);
+    }
+
+    nav {
+        padding: 0;
+        justify-content: center;
+    }
+
+    /* hide the logo so the buttons fit in one row */
+    .gn-logo {
+        display: none;
+    }
+
+    .contact {
+        width: 100%;
+        gap: 6px;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+
+    .but {
+        flex: 1;
+        width: auto;
+        min-width: 0;
+        height: 44px;
+        padding: 0 6px;
+        font-size: 0.8rem;
+        border-radius: 999px;
+    }
+
+    /* keep the last section / footer from hiding behind the bar */
+    body {
+        padding-bottom: 90px;
+    }
+}
+ 
 
          
     </style>
