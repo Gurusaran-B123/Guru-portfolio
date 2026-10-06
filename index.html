@@ -182,7 +182,7 @@
         }
 
         .name {
-            font-size:6rem;
+            font-size:7rem;
             font-weight: 800;
             margin-bottom: 20px;
             animation: fadeIn 0.8s ease-out 0.4s both;
@@ -875,36 +875,9 @@
 
 /* ---------- 1. LIQUID GLASS : header, nav buttons, role chips, footer links ---------- */
 
-/* colourful backdrop: liquid glass needs colour behind it to refract */
-.main {
-    background-image:
-        radial-gradient(circle at 15% 25%, rgba(167, 139, 250, 0.75), transparent 45%),
-        radial-gradient(circle at 80% 20%, rgba(94, 234, 212, 0.65), transparent 40%),
-        radial-gradient(circle at 70% 85%, rgba(251, 146, 120, 0.6), transparent 45%),
-        radial-gradient(circle at 30% 90%, rgba(96, 165, 250, 0.6), transparent 40%);
-}
-.main::before,
-.main::after {
-    content: "";
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(50px);
-    z-index: 1;
-    pointer-events: none;
-}
-.main::before {
-    width: 340px; height: 340px;
-    background: rgba(255, 255, 255, 0.45);
-    top: 8%; right: 10%;
-}
-.main::after {
-    width: 280px; height: 280px;
-    background: rgba(139, 92, 246, 0.4);
-    bottom: 8%; right: 32%;
-}
+
 
 /* shared liquid-glass surface look (header, nav buttons, footer links) */
-header,
 .but,
 .footer-links1 li,
 .footer-links2 li {
@@ -934,7 +907,7 @@ header:hover {
 
 .but {
     border-radius: 999px;
-    color: #1b1f3b;
+    /* color: #1b1f3b; */
 }
 .but:hover {
     color: #1b1f3b;
@@ -1143,15 +1116,7 @@ header:hover {
         0 20px 40px rgba(65, 65, 243, 0.3);
 }
 
-/* profile photo: glass frame around the picture */
-.about-image-box {
-    background-image: url("images/my.jfif");
-    background-position: center;
-    background-size: 120%;
-    background-origin: border-box;
-    border: 12px solid rgba(255, 255, 255, 0.5);
-    border-radius: 36px;
-}
+
 
 /* ---------- CONTACT SECTION: unchanged from before (neumorphism) ---------- */
 
@@ -1228,7 +1193,7 @@ header:hover {
     <main class="main" id="home">
         <section class="home">
             <p class="greeting">Hi there, welcome to my portfolio! <br>I'm</p>
-            <h1 class="name">Gurusaran</h1>
+            <h1 class="name">Gurusaran B</h1>
             <div class="roles-container">
                 <span class="role">   Frontend Developer</span>
                 <span class="role">   Backend Developer</span>
