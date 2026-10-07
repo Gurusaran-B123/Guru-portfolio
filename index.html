@@ -1159,60 +1159,6 @@ header:hover {
  }
 
 
-@media (max-width: 768px) {
-
-    header {
-        position: fixed !important;
-        top: auto !important;
-        bottom: calc(12px + env(safe-area-inset-bottom, 0px)) !important;
-        left: 12px !important;
-        right: 12px !important;
-        width: auto !important;
-        padding: 8px 10px !important;
-        border-radius: 999px !important;
-        z-index: 9999 !important;
-    }
-
-    header nav {
-        padding: 0 !important;
-        width: 100% !important;
-        justify-content: center !important;
-    }
-
-    /* hide the logo (and a link wrapped around it) */
-    header img,
-    .gn-logo,
-    header a:has(img) {
-        display: none !important;
-    }
-
-    /* the row that holds the buttons */
-    header nav > div,
-    header .contact {
-        width: 100% !important;
-        display: flex !important;
-        flex-wrap: nowrap !important;
-        gap: 6px !important;
-        justify-content: space-between !important;
-    }
-
-    header a,
-    .but {
-        flex: 1 1 0 !important;
-        width: auto !important;
-        min-width: 0 !important;
-        height: 44px !important;
-        padding: 0 4px !important;
-        font-size: 0.78rem !important;
-        border-radius: 999px !important;
-    }
-
-    /* keep the footer from hiding behind the bar */
-    body {
-        padding-bottom: 96px !important;
-    }
- }
- 
 
  
 
