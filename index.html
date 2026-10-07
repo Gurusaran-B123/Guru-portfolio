@@ -818,6 +818,67 @@
                 font-size: 1.3rem;
                 padding: 8px 15px;
             }
+                     /* ===== GLASS BAR CHART (paste inside @media (max-width: 768px) { ... }) ===== */
+            body::before {
+                content: "";
+                position: absolute;
+                top: 14px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 50;
+                box-sizing: border-box;
+                width: 190px;
+                height: 64px;
+                border-radius: 22px;
+                border: 1px solid rgba(255, 255, 255, 0.6);
+                pointer-events: none;
+                backdrop-filter: blur(14px) saturate(160%);
+                -webkit-backdrop-filter: blur(14px) saturate(160%);
+                box-shadow:
+                    inset 0 1.5px 1px rgba(255, 255, 255, 0.95),
+                    inset 0 -1.5px 2px rgba(255, 255, 255, 0.3),
+                    0 10px 28px rgba(30, 40, 90, 0.2);
+                background-image:
+                    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.3)),
+                    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.3)),
+                    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.3)),
+                    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.3)),
+                    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.3)),
+                    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.3)),
+                    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.3)),
+                    linear-gradient(135deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.08));
+                background-repeat: no-repeat;
+                background-position:
+                    15px calc(100% - 10px),
+                    40px calc(100% - 10px),
+                    65px calc(100% - 10px),
+                    90px calc(100% - 10px),
+                    115px calc(100% - 10px),
+                    140px calc(100% - 10px),
+                    165px calc(100% - 10px),
+                    0 0;
+                background-size:
+                    14px 30%, 14px 70%, 14px 45%, 14px 85%, 14px 35%, 14px 60%, 14px 50%,
+                    100% 100%;
+                animation: barMove 2.4s ease-in-out infinite;
+            }
+
+            @keyframes barMove {
+                0%, 100% {
+                    background-size: 14px 30%, 14px 70%, 14px 45%, 14px 85%, 14px 35%, 14px 60%, 14px 50%, 100% 100%;
+                }
+                25% {
+                    background-size: 14px 70%, 14px 35%, 14px 80%, 14px 40%, 14px 75%, 14px 30%, 14px 65%, 100% 100%;
+                }
+                50% {
+                    background-size: 14px 45%, 14px 85%, 14px 30%, 14px 70%, 14px 50%, 14px 80%, 14px 35%, 100% 100%;
+                }
+                75% {
+                    background-size: 14px 80%, 14px 40%, 14px 65%, 14px 30%, 14px 85%, 14px 45%, 14px 75%, 100% 100%;
+                }
+            }
+            /* ===== END GLASS BAR CHART ===== */
+             
         }
 
         @media (max-width: 480px) {
