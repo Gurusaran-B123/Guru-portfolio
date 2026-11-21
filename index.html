@@ -343,6 +343,15 @@ body.has-cursor .cursor, body.has-cursor .cursor-dot { opacity: 1; }
 @media (max-width: 768px) { .contact-section { padding: 60px 30px; } .contact-container h2 { font-size: 2rem; } }
 @media (max-width: 480px) { .contact-links { gap: 15px; } .contact-link { height: 50px; font-size: 1.2rem; } }
 
+/* ---------- Live visitor counter (footer) ---------- */
+.visitors { display: inline-flex; align-items: center; gap: 10px; padding: 8px 20px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.18); background: rgba(255, 255, 255, 0.06); font-size: 0.88rem; color: rgba(255, 255, 255, 0.85); }
+.visitors[hidden] { display: none; }
+.visitors .live { position: relative; width: 9px; height: 9px; border-radius: 50%; background: #22c55e; }
+.visitors .live::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: #22c55e; animation: livePing 1.8s ease-out infinite; }
+@keyframes livePing { to { transform: scale(2.8); opacity: 0; } }
+.visitors i { color: #ffc400; }
+.visitors b { color: #ffc400; font-size: 1rem; font-variant-numeric: tabular-nums; }
+
 /* ---------- Footer ---------- */
 .footer { position: relative; padding: 50px 0 30px; background: #000; color: #fff; }
 .footer-bottom { display: flex; justify-content: center; color: black; font-size: 0.9em; background-color: #8B9EB7; border-bottom: 5px solid black; }
@@ -700,6 +709,8 @@ body.has-cursor .cursor, body.has-cursor .cursor-dot { opacity: 1; }
       <nav class="footer-nav">
         <a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
       </nav>
+      <!-- live visitor counter (see "visitorCounter" in the script) -->
+      <div class="visitors" id="visitors" hidden title="Live visitor count"><span class="live" aria-hidden="true"></span><i class="bi bi-people-fill" aria-hidden="true"></i><span>Visitors</span><b id="visitorCount">0</b></div>
     </div>
     <a href="#home" class="to-top clay clay-lav" id="toTop" aria-label="Back to top"><i class="bi bi-chevron-up" aria-hidden="true"></i></a>
   </footer>
@@ -963,6 +974,57 @@ function onBgTap(sec, fn) {
     ripples.push({ x, y, r: 0, max: Math.hypot(W, H) * 0.75, life: 1 });
     start();
   });
+})();
+
+/* ---------- Live visitor counter (free Abacus counting API, no signup) ---------- */
+(function visitorCounter() {
+  const box = $("#visitors"), num = $("#visitorCount");
+  if (!box) return;
+  // EDIT: keep the namespace unique to you (anyone who knows it can read/hit it)
+  const API = "https://abacus.jasoncameron.dev", NS = "gurusaran-b123-portfolio", KEY = "visits";
+  const url = (action) => `${API}/${action}/${NS}/${KEY}`;
+  const isLocal = location.protocol === "file:" || ["", "localhost", "127.0.0.1"].includes(location.hostname);
+  const today = new Date().toISOString().slice(0, 10);
+  let shown = 0;
+
+  async function call(action) {
+    const ac = new AbortController(), timer = setTimeout(() => ac.abort(), 8000);
+    try {
+      const r = await fetch(url(action), { signal: ac.signal, cache: "no-store" });
+      if (r.status === 404) return 0;            // counter not created yet
+      if (!r.ok) throw new Error("counter " + r.status);
+      return Number((await r.json()).value) || 0;
+    } finally { clearTimeout(timer); }
+  }
+  function render(v) {
+    box.hidden = false;
+    const from = shown; shown = v;
+    if (prefersReduced || from === v) { num.textContent = v.toLocaleString(); return; }
+    const t0 = performance.now();
+    (function step(now) {
+      const p = Math.min((now - t0) / 900, 1);
+      num.textContent = Math.round(from + (v - from) * (1 - Math.pow(1 - p, 3))).toLocaleString();
+      if (p < 1) requestAnimationFrame(step);
+    })(t0);
+  }
+  const counted = () => { try { return localStorage.getItem("visit-counted") === today; } catch (e) { return false; } };
+  const markCounted = () => { try { localStorage.setItem("visit-counted", today); } catch (e) {} };
+
+  async function init() {
+    try {
+      let v;
+      if (!isLocal && !counted()) { v = await call("hit"); markCounted(); }   // one visit per browser per day
+      else v = await call("get");                                              // refresh / local preview: read only
+      render(v);
+    } catch (e) { /* service unreachable: badge stays hidden */ }
+  }
+  async function poll() {
+    if (document.hidden) return;
+    try { render(await call("get")); } catch (e) {}
+  }
+  init();
+  setInterval(poll, 30000);                                   // "live": refresh every 30 s
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) poll(); });
 })();
 
 /* ---------- Skills pager (vertical dashes on the right of the card) ---------- */
